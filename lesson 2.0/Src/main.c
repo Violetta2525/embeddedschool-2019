@@ -22,6 +22,7 @@
 #include "main.h"
 #include "usb_host.h"
 #include "DrvLED.h"
+#include "heartbeat.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -116,6 +117,30 @@ int main(void)
     MX_USB_HOST_Process();
 
     /* USER CODE BEGIN 3 */
+    for(int i = 0; i<7; i++)
+    {
+    	heartbeat(LED_GREEN, 500);
+    }
+    drvLeds_ON(LED_BLUE|LED_GREEN|LED_ORANGE|LED_RED);
+    Delay(5000);
+    drvLeds_OFF(LED_BLUE|LED_GREEN|LED_ORANGE|LED_RED);
+    Delay(150);
+    for(;;)
+    {
+    	drvLeds_ON(LED_RED);
+    	Delay(500);
+    	drvLeds_OFF(LED_RED);
+    	drvLeds_ON(LED_BLUE);
+    	Delay(500);
+      	drvLeds_OFF(LED_BLUE);
+    	drvLeds_ON(LED_GREEN);
+        Delay(500);
+    	drvLeds_OFF(LED_GREEN);
+    	drvLeds_ON(LED_ORANGE);
+    	Delay(500);
+    	drvLeds_OFF(LED_ORANGE);
+    	Delay(500);
+    }
 
 
   }

@@ -20,5 +20,6 @@ typedef enum
 
 void drvLeds_ON(led_t LEDsColour);
 void drvLeds_OFF(led_t LEDsColour);
+void Delay(int Time);
 
 #endif /* DRVLED_H_ */
