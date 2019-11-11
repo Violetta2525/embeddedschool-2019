@@ -7,17 +7,18 @@
 
 #ifndef DRVLED_H_
 #define DRVLED_H_
+#include "main.h"
 
 typedef enum
 {
-	LED_BLUE = LD6,
-	LED_RED = LD5,
-	LED_ORANGE = LD3,
-	LED_GREEN = LD4
+	LED_BLUE = LD6_Pin,
+	LED_RED = LD5_Pin,
+	LED_ORANGE = LD3_Pin,
+	LED_GREEN = LD4_Pin
 
 }led_t;
 
-void drvLeds_ON(leds_t LEDsColour);
-void drvLeds_OFF(leds_t LEDsColour);
+void drvLeds_ON(led_t LEDsColour);
+void drvLeds_OFF(led_t LEDsColour);
 
 #endif /* DRVLED_H_ */
